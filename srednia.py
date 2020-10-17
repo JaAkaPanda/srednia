@@ -37,4 +37,4 @@ else:
             suma_ocen += i * o
             z += 1
             srednia = suma_ocen/liczba_ocen
-print("Twoja srednia wynosi: ", srednia)
+print("Twoja srednia wynosi: ", srednia) #asd
