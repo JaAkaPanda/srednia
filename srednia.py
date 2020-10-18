@@ -1,40 +1,42 @@
-typ = int(input('Jaka srednia chcesz policzyc (Wpisz "1" dla arytmetyczna lub "2" dla wazona): '))
-if typ != 1 and typ != 2:
-    print("Błąd wyboru! Spróbuj ponownie!")
+answer = (input('Which type of average would you like to calculate? (Enter "1" for arythmetic average or "2" for weight average): '))
+if answer != "1" and answer != "2":
+    print("Input error! Try again!")
 else:
-    liczba_ocen = int(input("Enter the number of grades: "))
-    oceny = ()
-    wagi = ()
-    suma_ocen = 0
-    suma_wag = 0
-    iloczyn = 0
-    z = 0
-    srednia = 0
+    number_of_grades = int(input("Enter the number of grades: "))
+    grades = ()
+    weights = ()
+    sum_of_grades = 0
+    sum_of_weights = 0
+    pointer = 0
+    average = 0
 
-    if typ == 2:
-        for i in range(1, liczba_ocen+1):
-            ocena = float(input("Wprowadz ocene: "))
-            lista_ocen = list(oceny)
-            lista_ocen.append(ocena)
-            oceny = tuple(lista_ocen)
-            waga = int(input("Wprowadz wage oceny: "))
-            lista_wag = list(wagi)
-            lista_wag.append(waga)
-            wagi = tuple(lista_wag)
-        for i in oceny:
-            o = wagi[z]
-            suma_ocen += i * o
-            z += 1 
-        for i in wagi:
-            suma_wag += i
-        if suma_wag <= 0:
-            print("Bledna suma wag. Brak wyniku.")
+    if answer == "2":
+        for i in range(1, number_of_grades+1):
+            grade = float(input("Enter grade: "))
+            list_of_grades = list(grades)
+            list_of_grades.append(grade)
+            grades = tuple(list_of_grades)
+            weight = int(input("Enter grade's weight: "))
+            list_of_weights = list(weights)
+            list_of_weights.append(weight)
+            weights = tuple(list_of_weights)
+        for i in grades:
+            o = weights[pointer]
+            sum_of_grades += i * o
+            pointer += 1 
+        for i in weights:
+            sum_of_weights += i
+        if sum_of_weights <= 0:
+            print("Wrong sum of the weights. No answer displayed.")
         else:
-            srednia = suma_ocen/suma_wag
-    elif typ == 1:
-        for i in oceny:
-            o = wagi[z]
-            suma_ocen += i * o
-            z += 1
-            srednia = suma_ocen/liczba_ocen
-print("Twoja srednia wynosi: ", srednia) #asd
+            average = sum_of_grades/sum_of_weights
+    elif answer == "1":
+        for i in range(1, number_of_grades+1):
+            grade = float(input("Enter grade: "))
+            list_of_grades = list(grades)
+            list_of_grades.append(grade)
+            grades = tuple(list_of_grades)
+        for i in grades:
+            sum_of_grades += i
+        average = sum_of_grades/number_of_grades
+    print("Your average is: ", average)
